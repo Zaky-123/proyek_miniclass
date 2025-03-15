@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Akun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('images/431b1c3d397c04127ae03224916edddb.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen bg-cover bg-center">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-96 text-center border-2 border-blue-500">
+        <h2 class="text-3xl font-semibold mb-6 text-blue-600">Login Akun</h2>
+        <form onsubmit="event.preventDefault(); window.location.href='proyek_utama.html';">
+            <div class="mb-6 text-left">
+                <label for="email" class="block font-medium text-gray-700">Email</label>
+                <input type="email" id="email" placeholder="Masukkan Email Anda" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-6 text-left">
+                <label for="password" class="block font-medium text-gray-700">Password</label>
+                <input type="password" id="password" placeholder="Masukkan Password Anda" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300">Masuk</button>
+        </form>
+        <p class="mt-6 text-gray-600">Belum punya akun? <a href="daftar.html " class="text-blue-600 hover:underline">Daftar di sini</a></p>
+    </div>
+</body>
+</html>
