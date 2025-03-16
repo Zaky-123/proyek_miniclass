@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopcart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.0/flowbite.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<!-- <style>
+    .product-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+</style> -->
+
+<body class="font-sans">
+    <!-- Navbar -->
+    <nav class="relative flex justify-between items-center p-4 shadow-md bg-white backdrop-blur-md z-50">
+        <div class="flex items-center space-x-2">
+            <div class="text-2xl font-bold flex items-center space-x-2">
+                <span class="text-blue-900"><i class="fas fa-shopping-cart"></i></span>
+                <span>LarisAja</span>
+            </div>
+        </div>
+
+        <!-- Tombol Kategori dan Search -->
+        <div class="flex items-center space-x-4">
+            <!-- Tombol Kategori (Hanya untuk Desktop) -->
+            <div class="relative hidden md:block">
+                <button id="categoryButton"
+                    class="bg-blue-900 text-white px-4 py-2 rounded-md flex items-center space-x-2">
+                    <span>Kategori</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300"
+                        id="categoryArrowIcon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="categoryDropdown" class="absolute hidden bg-white shadow-md rounded-md mt-2 w-48">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Elektronik</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Fashion</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Peralatan Rumah</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Olahraga</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Lainnya</a>
+                </div>
+            </div>
+
+            <!-- Input Pencarian -->
+            <div class="relative">
+                <input id="searchInput" type="text" placeholder="Search Product"
+                    class="border rounded px-3 py-1 w-full">
+            </div>
+        </div>
+
+        <!-- Tombol Menu Mobile -->
+        <button class="md:hidden text-secondary" id="menuToggle">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <!-- Menu Navigasi Desktop -->
+        <div class="hidden md:flex md:space-x-6 text-gray-700 items-center">
+            <a href="#" class="hover:text-blue-900">Home</a>
+            <a href="#" class="hover:text-blue-900">Rekomendasi</a>
+            <button class="bg-blue-900 text-white px-3 py-1 rounded text-sm">Jual</button>
+        </div>
+
+        <!-- Ikon Aksi -->
+        <div class="hidden md:flex space-x-4 items-center">
+            <span class="cursor-pointer"><i class="fas fa-envelope"></i></span>
+            <span class="cursor-pointer"><i class="fas fa-user"></i></span>
+            <span class="cursor-pointer"><i class="fas fa-shopping-cart"></i></span>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden fixed top-16 left-0 w-full bg-white shadow-md py-4 px-6 z-50">
+        <nav class="flex flex-col space-y-4">
+            <a href="#" class="font-medium hover:text-blue-900 transition">Home</a>
+            <a href="#" class="font-medium hover:text-blue-900 transition">Rekomendasi</a>
+            <button class="bg-blue-900 text-white px-4 py-2 rounded text-sm">Jual</button>
+
+            <!-- Ikon Aksi -->
+            <div class="flex space-x-4 pt-2">
+                <span class="cursor-pointer"><i class="fas fa-envelope"></i></span>
+                <span class="cursor-pointer"><i class="fas fa-user"></i></span>
+                <span class="cursor-pointer"><i class="fas fa-shopping-cart"></i></span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Carousel -->
+    <div id="default-carousel" class="relative w-full mt-20" data-carousel="slide">
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/proyek_miniclass/assets/images/laptop.png" class="w-full" alt="Shopping">
+            </div>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/proyek_miniclass/assets/images/pakaian.jpg" class="w-full" alt="Electronics">
+            </div>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" class="w-full" alt="Fashion">
+            </div>
+        </div>
+        <button type="button" class="absolute top-0 left-0 z-30 flex items-center h-full px-4 cursor-pointer"
+            data-carousel-prev>
+            <span class="text-white bg-black/50 rounded-full p-2">&#9664;</span>
+        </button>
+        <button type="button" class="absolute top-0 right-0 z-30 flex items-center h-full px-4 cursor-pointer"
+            data-carousel-next>
+            <span class="text-white bg-black/50 rounded-full p-2">&#9654;</span>
+        </button>
+    </div>
+
+    <!-- Recommended For You Section -->
+    <div class="p-8">
+        <h2 class="text-2xl font-semibold mb-4">Recommended For You</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <!-- Item 1 -->
+            <a href="/proyek_miniclass/item.html">
+            <div class="bg-gray-900 p-2 rounded-lg product-item">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-sm font-bold">L</div>
+                    <span class="text-sm text-white">linalin27</span>
+                </div>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" alt="Item 1"
+                    class="w-full h-40 object-cover rounded-md">
+                <p class="mt-2 text-sm text-white">Jaket Oversize Trendy</p>
+                <p class="text-lg font-semibold text-white">Rp120.000</p>
+            </div>
+        </a>
+            <!-- Item 2 -->
+            <div class="bg-gray-900 p-2 rounded-lg product-item">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-6 h-6 bg-pink-400 rounded-full flex items-center justify-center text-sm font-bold">H</div>
+                    <span class="text-sm text-white">henhen.clothing</span>
+                </div>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" alt="Item 2"
+                    class="w-full h-40 object-cover rounded-md">
+                <p class="mt-2 text-sm text-white">Kaos Vintage Classic</p>
+                <p class="text-lg font-semibold text-white">Rp95.000</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="bg-gray-900 p-2 rounded-lg product-item">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center text-sm font-bold">T</div>
+                    <span class="text-sm text-white">thriftuloved.id</span>
+                </div>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" alt="Item 3"
+                    class="w-full h-40 object-cover rounded-md">
+                <p class="mt-2 text-sm text-white">Hoodie Casual Unisex</p>
+                <p class="text-lg font-semibold text-white">Rp150.000</p>
+            </div>
+            <!-- Item 4 -->
+            <div class="bg-gray-900 p-2 rounded-lg product-item">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center text-sm font-bold">B</div>
+                    <span class="text-sm text-white">belle.lyn</span>
+                </div>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" alt="Item 4"
+                    class="w-full h-40 object-cover rounded-md">
+                <p class="mt-2 text-sm text-white">Sepatu Sneakers Stylish</p>
+                <p class="text-lg font-semibold text-white">Rp230.000</p>
+            </div>
+        </div>
+    </div>
+    <div class="p-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <!-- Item 5 -->
+            <div class="bg-gray-900 p-2 rounded-lg product-item">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-sm font-bold">L</div>
+                    <span class="text-sm text-white">linalin27</span>
+                </div>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" alt="Item 1"
+                    class="w-full h-40 object-cover rounded-md">
+                <p class="mt-2 text-sm text-white">Jaket Oversize Trendy</p>
+                <p class="text-lg font-semibold text-white">Rp120.000</p>
+            </div>
+            <!-- Item 6 -->
+            <div class="bg-gray-900 p-2 rounded-lg product-item">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-6 h-6 bg-pink-400 rounded-full flex items-center justify-center text-sm font-bold">H</div>
+                    <span class="text-sm text-white">henhen.clothing</span>
+                </div>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" alt="Item 2"
+                    class="w-full h-40 object-cover rounded-md">
+                <p class="mt-2 text-sm text-white">Kaos Vintage Classic</p>
+                <p class="text-lg font-semibold text-white">Rp95.000</p>
+            </div>
+            <!-- Item 7 -->
+            <div class="bg-gray-900 p-2 rounded-lg product-item">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center text-sm font-bold">T</div>
+                    <span class="text-sm text-white">thriftuloved.id</span>
+                </div>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" alt="Item 3"
+                    class="w-full h-40 object-cover rounded-md">
+                <p class="mt-2 text-sm text-white">Hoodie Casual Unisex</p>
+                <p class="text-lg font-semibold text-white">Rp150.000</p>
+            </div>
+            <!-- Item 8 -->
+            <div class="bg-gray-900 p-2 rounded-lg product-item">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center text-sm font-bold">B</div>
+                    <span class="text-sm text-white">belle.lyn</span>
+                </div>
+                <img src="/proyek_miniclass/assets/images/elektronik.jpg" alt="Item 4"
+                    class="w-full h-40 object-cover rounded-md">
+                <p class="mt-2 text-sm text-white">Sepatu Sneakers Stylish</p>
+                <p class="text-lg font-semibold text-white">Rp230.000</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Foooter -->
+    <section id="footer">
+        <footer class="relative bg-blue-900 pt-8 pb-6 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap text-left lg:text-left">
+                    <div class="w-full lg:w-6/12 px-4">
+                        <h4 class="text-3xl fonat-semibold text-white">Let's keep in touch!</h4>
+                        <div class="mt-6 lg:mb-0 mb-6">
+                            <button
+                                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-twitter"></i></button><button
+                                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-facebook-square"></i></button><button
+                                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-instagram"></i></button><button
+                                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-linkedin"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="flex flex-wrap items-top mb-6">
+                            <div class="w-full lg:w-4/12 px-4 ml-auto">
+                                <span class="block uppercase text-white text-sm font-semibold mb-2">Useful
+                                    Links</span>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.creative-tim.com/presentation?ref=njs-profile">About
+                                            Us</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://blog.creative-tim.com?ref=njs-profile">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.github.com/creativetimofficial?ref=njs-profile">Github</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile">Free
+                                            Products</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <span class="block uppercase text-white text-sm font-semibold mb-2">Other
+                                    Resources</span>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/terms?ref=njs-profile">Terms &amp;
+                                            Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/privacy?ref=njs-profile">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/contact-us?ref=njs-profile">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-6 border-blueGray-300">
+                <div class="flex flex-wrap items-center md:justify-between justify-center">
+                    <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                        <div class="text-sm text-white font-semibold py-1">
+                            Copyright © <span id="get-current-year">2025</span><a
+                                href="https://www.creative-tim.com/product/notus-js"
+                                class="text-white hover:text-gray-800" target="_blank"> by
+                                <a href="https://www.creative-tim.com?ref=njs-profile"
+                                    class="text-white hover:text-blueGray-800">Kontrakan Pride</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <script>
+        // Hamburger menu
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Menutup menu jika klik di luar menu
+            document.addEventListener('click', function (event) {
+                if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Dropdown kategori
+        const categoryButton = document.getElementById('categoryButton');
+        const categoryDropdown = document.getElementById('categoryDropdown');
+        const categoryArrowIcon = document.getElementById('categoryArrowIcon');
+
+        categoryButton.addEventListener('click', () => {
+            categoryDropdown.classList.toggle('hidden');
+            categoryArrowIcon.classList.toggle('rotate-180');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!categoryButton.contains(event.target) && !categoryDropdown.contains(event.target)) {
+                categoryDropdown.classList.add('hidden');
+                categoryArrowIcon.classList.remove('rotate-180');
+            }
+        });
+    </script>
+</body>
+
+</html>
