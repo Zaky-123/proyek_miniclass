@@ -1,0 +1,36 @@
+ /* navbar */
+.navbar {
+    transition: background-color 0.3s;
+}
+
+.navbar.scrolled {
+    background-color: #1e3a8a;
+}
+
+    /* Tailwind's blue-800 */
+.swiper-wrapper {
+        width: 100%;
+        height: max-content !important;
+        padding-bottom: 64px !important;
+        -webkit-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+        position: relative;
+    }
+
+    .swiper-pagination-bullet {
+        background: #4f46e5;
+    }
+
+
+.swiper-wrapper {
+    width: 100%;
+    height: max-content !important;
+    padding-bottom: 64px !important;
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
+    position: relative;
+}
+
+.swiper-pagination-bullet {
+    background: #4f46e5;
+}
