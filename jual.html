@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unggah Produk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.0/flowbite.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="min-h-screen p-4">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 shadow-md bg-white backdrop-blur-md z-50">
+        <div class="flex items-center space-x-2">
+            <div class="text-2xl font-bold flex items-center space-x-2">
+                <span class="text-blue-900"><i class="fas fa-shopping-cart"></i></span>
+                <span>LarisAja</span>
+            </div>
+        </div>
+
+        <!-- Tombol Kategori dan Search -->
+        <div class="flex items-center space-x-4">
+            <!-- Tombol Kategori (Hanya untuk Desktop) -->
+            <div class="relative hidden md:block">
+                <button id="categoryButton"
+                    class="bg-blue-900 text-white px-4 py-2 rounded-md flex items-center space-x-2">
+                    <span>Kategori</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300"
+                        id="categoryArrowIcon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="categoryDropdown" class="absolute hidden bg-white shadow-md rounded-md mt-2 w-48">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Elektronik</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Fashion</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Peralatan Rumah</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Olahraga</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Lainnya</a>
+                </div>
+            </div>
+
+            <!-- Input Pencarian -->
+            <div class="relative">
+                <input id="searchInput" type="text" placeholder="Search Product"
+                    class="border rounded px-3 py-1 w-full">
+            </div>
+        </div>
+
+        <!-- Tombol Menu Mobile -->
+        <button class="md:hidden text-secondary" id="menuToggle">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <!-- Menu Navigasi Desktop -->
+        <div class="hidden md:flex md:space-x-6 text-gray-700 items-center">
+            <a href="#" class="hover:text-blue-900">Home</a>
+            <a href="#" class="hover:text-blue-900">Rekomendasi</a>
+            <button class="bg-blue-900 text-white px-3 py-1 rounded text-sm">Jual</button>
+        </div>
+
+        <!-- Ikon Aksi -->
+        <div class="hidden md:flex space-x-4 items-center">
+            <span class="cursor-pointer"><i class="fas fa-envelope"></i></span>
+            <span class="cursor-pointer"><i class="fas fa-user"></i></span>
+            <span class="cursor-pointer"><i class="fas fa-shopping-cart"></i></span>
+        </div>
+    </nav>
+    <div class="w-full max-w-6xl bg-white mt-16 pl-7">
+        <h2 class="text-3xl font-semibold mb-6 text-left text-black">Cantumkan Barang</h2>
+
+        <!-- Container Utama (Responsif) -->
+        <div class="flex flex-col lg:flex-row gap-10 pl-12">
+            <!-- Container 1 (Foto, Kategori, Judul) -->
+            <div class="w-full lg:w-1/2  p-10 rounded-lg shadow-lg h-screen">
+                <!-- Upload Foto -->
+                <div class="border-2 border-dashed border-blue-500 p-6 text-center bg-blue-200 rounded-lg">
+                    <label class="cursor-pointer">
+                        <input type="file" class="hidden" id="uploadFoto" accept="image/*" multiple>
+                        <div class="flex flex-col items-center">
+                            <svg class="w-12 h-12 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V8m0 0l3 3m-3-3l-3 3m13 4h-4m4 0V8m0 8h-4m4 0V8"></path>
+                            </svg>
+                            <span class="mt-3 text-blue-900 font-semibold text-lg">Pilih Foto</span>
+                        </div>
+                    </label>
+                    <p class="text-blue-700 mt-2 text-sm">atau pindahkan foto ke sini (Hingga 10 foto)</p>
+                </div>
+                <!-- Preview Foto -->
+                <div id="previewContainer" class="mt-4 grid grid-cols-3 gap-2"></div>
+
+                <!-- Pilih Kategori -->
+                <div class="mt-6">
+                    <label class="block font-semibold mb-2 text-lg text-blue-900">Kategori</label>
+                    <select class="w-full rounded-lg p-3 text-lg border-2 border-black">
+                        <option>Pilih kategori</option>
+                        <option>Elektronik</option>
+                        <option>Fesyen</option>
+                        <option>Peralatan Rumah</option>
+                    </select>
+                </div>
+
+                <!-- Judul -->
+                <div class="mt-6">
+                    <label class="block font-semibold mb-2 text-lg text-blue-900">Judul</label>
+                    <input type="text" class="w-full border-2 border-black rounded-lg p-3 text-lg" placeholder="Beri nama untuk barangmu">
+                </div>
+            </div>
+
+            <!-- Container 2 (Rincian Produk, Harga, Deskripsi) -->
+            <div class="w-full lg:w-2/3  p-6 rounded-lg shadow-lg ">
+                <!-- Rincian Produk -->
+                <div>
+                    <label class="block font-semibold mb-2 text-lg text-blue-900">Rincian Produk</label>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="px-4 py-2 border rounded-lg text-lg bg-white">Barang baru</button>
+                        <button class="px-4 py-2 border rounded-lg text-lg bg-white">Seperti baru</button>
+                        <button class="px-4 py-2 border rounded-lg text-lg bg-white">Tidak terlalu sering digunakan</button>
+                    </div>
+                </div>
+
+                <!-- Harga -->
+                <div class="mt-6">
+                    <label class="block font-semibold mb-2 text-lg text-blue-900">Harga</label>
+                    <input type="text" class="w-full border-2 border-black rounded-lg p-3 text-lg" placeholder="Rp Harga barangmu">
+                </div>
+
+                <!-- Deskripsi -->
+                <div class="mt-6">
+                    <label class="block font-semibold mb-2 text-lg text-blue-900">Deskripsi (Opsional)</label>
+                    <textarea class="w-full border-2 border-black rounded-lg p-3 text-lg" rows="4" placeholder="Tambahkan deskripsi..."></textarea>
+                </div>
+                
+                <!-- Pilih Merek -->
+                <div id="dropdownContainer" class="relative transition-all duration-300">
+                    <label class="block font-semibold mb-2 text-lg text-blue-900">Pilih Merek</label>
+                    <button id="dropdownButton" class="w-full border-2 border-black rounded-lg p-3 text-lg bg-white flex justify-between">
+                        Pilih Merek
+                        <span>^</span>
+                    </button>
+                    <ul id="dropdownList" class="hidden w-full bg-white border border-black mt-1 rounded-lg shadow-lg relative">
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Dell</li>
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Apple</li>
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Lenovo</li>
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Asus</li>
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">DLL</li>
+                    </ul>
+                </div>
+
+                <!-- Metode Pembayaran -->
+                <div id="dropdownContainer2" class="relative transition-all duration-300">
+                    <label class="block font-semibold mb-2 text-lg text-blue-900">Metode Pembayaran</label>
+                    <button id="dropdownButton2" class="w-full border-2 border-black rounded-lg p-3 text-lg bg-white flex justify-between">
+                        Metode Pembayaran
+                        <span>^</span>
+                    </button>
+                    <ul id="dropdownList2" class="hidden w-full bg-white border border-black mt-1 rounded-lg shadow-lg relative">
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Pilih Metode</li>
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Transfer Bank</li>
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">e-Wallet (GoPay, OVO, Dana)</li>
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Kartu Kredit/Debit</li>
+                        <li class="p-2 hover:bg-gray-200 cursor-pointer">DLL</li>
+                    </ul>
+                </div>
+                
+                <!-- Tombol Pasang -->
+                <div class="mt-6 text-right">
+                    <button class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-blue-800 transition">
+                        Pasang Sekarang
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+   
+
+    <script>
+        const dropdownButton = document.getElementById("dropdownButton");
+        const dropdownList = document.getElementById("dropdownList");
+        const dropdownContainer = document.getElementById("dropdownContainer");
+    
+        dropdownButton.addEventListener("click", () => {
+            dropdownList.classList.toggle("hidden");
+    
+            // Cek apakah dropdown terbuka
+            if (!dropdownList.classList.contains("hidden")) {
+                dropdownContainer.classList.add("pb-15"); // Tambah padding bawah agar container memanjang
+            } else {
+                dropdownContainer.classList.remove("pb-15"); // Hapus padding jika dropdown tertutup
+            }
+        });
+    
+        document.addEventListener("click", (event) => {
+            if (!dropdownButton.contains(event.target) && !dropdownList.contains(event.target)) {
+                dropdownList.classList.add("hidden");
+                dropdownContainer.classList.remove("pb-15");
+            }
+        });
+    </script>
+
+    <script>
+        const dropdownButton2 = document.getElementById("dropdownButton2");
+        const dropdownList2 = document.getElementById("dropdownList2");
+        const dropdownContainer2 = document.getElementById("dropdownContainer2");
+
+        dropdownButton2.addEventListener("click", () => {
+            dropdownList2.classList.toggle("hidden");
+
+            if (!dropdownList2.classList.contains("hidden")) {
+                dropdownContainer2.classList.add("pb-20");
+            } else {
+                dropdownContainer2.classList.remove("pb-20");
+            }
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!dropdownButton2.contains(event.target) && !dropdownList2.contains(event.target)) {
+                dropdownList2.classList.add("hidden");
+                dropdownContainer2.classList.remove("pb-20");
+            }
+        });
+    </script>
+
+    <!-- Script untuk Preview Foto -->
+    <script>
+        document.getElementById('uploadFoto').addEventListener('change', function(event) {
+            const previewContainer = document.getElementById('previewContainer');
+            previewContainer.innerHTML = ''; // Hapus preview lama
+            const files = event.target.files;
+
+            if (files.length > 10) {
+                alert('Maksimal 10 foto');
+                return;
+            }
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.classList.add('w-24', 'h-24', 'object-cover', 'rounded-lg', 'border', 'border-blue-300');
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+    </script>
+
+    <script>
+        // Hamburger menu
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Menutup menu jika klik di luar menu
+            document.addEventListener('click', function (event) {
+                if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+         });
+        });
+
+        // Dropdown kategori
+        const categoryButton = document.getElementById('categoryButton');
+        const categoryDropdown = document.getElementById('categoryDropdown');
+        const categoryArrowIcon = document.getElementById('categoryArrowIcon');
+
+        categoryButton.addEventListener('click', () => {
+            categoryDropdown.classList.toggle('hidden');
+            categoryArrowIcon.classList.toggle('rotate-180');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!categoryButton.contains(event.target) && !categoryDropdown.contains(event.target)) {
+                categoryDropdown.classList.add('hidden');
+                categoryArrowIcon.classList.remove('rotate-180');
+            }
+        });
+    </script>
+
+</body>
+</html>
