@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+    <link rel="stylesheet"
+        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Marketplace Khusus Mahasiswa</title>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <nav class="navbar bg-transparent shadow-md fixed w-full z-10">
+        <div class="max-w-screen-xl mx-auto px-5 flex justify-between items-center h-16">
+            <!-- Logo -->
+            <!-- Logo -->
+            <a href="index_2.html" class="flex items-center">
+                <img src="img/logo.png" class="h-14 w-auto rounded-lg" alt="Logo">
+            </a>
+
+            <!-- Menu Navigasi (Desktop) -->
+            <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <li><a href="#home" class="text-white hover:text-indigo-500">Home</a></li>
+                <li><a href="#masalah" class="text-white hover:text-indigo-500">Masalah</a></li>
+                <li><a href="#fitur" class="text-white hover:text-indigo-500">Fitur</a></li>
+                <li><a href="#team" class="text-white hover:text-indigo-500">Kontak</a></li>
+            </ul>
+
+            <!-- Tombol Masuk & Daftar -->
+            <div class="hidden md:flex space-x-4">  
+                <a href="masuk.html" class="text-gray-700 flex items-center text-white hover:text-indigo-500 font-medium">Masuk</a>
+                <a href="daftar.html" class="bg-indigo-500 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-indigo-700">Daftar</a>
+            </div>
+
+            <!-- Tombol Hamburger (Mobile) -->
+            <button id="menu-toggle" class="md:hidden p-2 rounded-md focus:outline-none">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu Navigasi (Mobile) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md py-4">
+            <ul class="flex flex-col items-center space-y-4 text-gray-700 font-medium">
+                <li><a href="#home" class="hover:text-indigo-500">Home</a></li>
+                <li><a href="#masalah" class="hover:text-indigo-500">Masalah</a></li>
+                <li><a href="#fitur" class="hover:text-indigo-500">Fitur</a></li>
+                <li><a href="#team" class="hover:text-indigo-500">Kontak</a></li>
+                <li><a href="masuk.html" class="text-gray-700 hover:text-indigo-500">Masuk</a></li>
+                <li><a href="daftar.html" class="bg-indigo-500 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-indigo-700">Daftar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Navbar -->
+    <!-- <nav class="navbar bg-transparent fixed w-full z-10 py-4">
+        <div class="max-w-screen-xl flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <span class="text-2xl font-semibold text-white">Marketplace</span>
+            </a>
+            <button id="menu-toggle" type="button"
+                class="md:hidden p-2 w-10 h-10 flex items-center justify-center text-white rounded-lg hover:bg-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <div id="navbar-default" class="flex items-center justify-center md:space-x-8 bg-gray-900 md:bg-transparent py-2 md:py-0 px-5 md:px-0 md:w-auto md:relative absolute top-full left-0 right-0 md:static">
+                <ul class="font-medium flex flex-col md:flex-row justify-center gap-10 text-center">
+                    <li><a href="#home" class="block text-white hover:text-blue-300">Home</a></li>
+                    <li><a href="#masalah" class="block text-white hover:text-blue-300">Masalah</a></li>
+                    <li><a href="#fitur" class="block text-white hover:text-blue-300">Fitur</a></li>
+                    <li><a href="#footer" class="block text-white hover:text-blue-300">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:space-x-4">
+                <a href="#" class="text-white text-sm font-semibold hover:text-blue-400 px-4 py-2">Masuk</a>
+                <a href="#" class="bg-blue-500 px-6 py-2 rounded-lg text-white hover:bg-blue-700 text-sm font-semibold shadow-md">
+                    Daftar
+                </a>
+            </div>
+        </div>
+    </nav> -->
+    
+    
+
+
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-fixed bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center"
+        style="background-image: url('img/bg-homepage.png');">
+        <div class="text-center text-white p-4 bg-black bg-opacity-50 rounded">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di Marketplace Khusus Mahasiswa</h1>
+            <p class="text-lg md:text-2xl">Platform terbaik untuk jual beli barang bekas di kalangan mahasiswa.</p>
+        </div>
+    </section>
+
+    <!-- Masalah Section -->
+    <section id="masalah" class="py-16 bg-gray-200">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Masalah yang Dihadapi Mahasiswa</h2>
+            <div class="space-y-6">
+                <div class="bg-gray-100 p-6 rounded shadow">
+                    <h3 class="text-2xl font-semibold mb-2">Kesulitan Menemukan Platform Khusus Mahasiswa</h3>
+                    <p>Mahasiswa sering kesulitan menemukan platform yang khusus melayani jual beli barang bekas di
+                        kalangan mereka.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded shadow">
+                    <h3 class="text-2xl font-semibold mb-2">Keamanan Transaksi yang Rendah</h3>
+                    <p>Transaksi di platform umum seringkali tidak memiliki sistem verifikasi identitas yang kuat,
+                        meningkatkan risiko penipuan.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded shadow">
+                    <h3 class="text-2xl font-semibold mb-2">resiko penipuan yang tinggi </h3>
+                    <p>Tanpa sistem verifikasi yang ketat, banyak mahasiswa menjadi korban penipuan saat bertransaksi di
+                        platform umum, baik dari segi pembayaran maupun keaslian barang.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded shadow">
+                    <h3 class="text-2xl font-semibold mb-2">Harga Barang yang Relatif Mahal </h3>
+                    <p>Mahasiswa sering kesulitan mendapatkan barang kebutuhan dengan harga terjangkau karena
+                        keterbatasan pilihan dan kurangnya platform jual beli khusus mahasiswa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitur Section -->
+    <section id="fitur">
+        <div class="text-center mt-10 px-4">
+            <h2 class="text-3xl font-bold text-gray-800">Kenapa Harus Produk Kita?</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-8">
+            <!-- Card 1 -->
+            <div class="relative w-full h-96 bg-black rounded-lg overflow-hidden">
+                <img src="img/mahasiswa.jpeg.jpg" alt="" class="w-full h-full object-cover opacity-80">
+                <div class="absolute bottom-0 p-6 text-white bg-gradient-to-t from-black to-transparent">
+                    <h3 class="text-2xl font-bold">Khusus Mahasiswa</h3>
+                    <p class="text-sm mt-8">Platform khusus untuk mahasiswa, memberikan lingkungan transaksi yang lebih
+                        aman.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="relative w-full h-96 bg-gray-300 rounded-lg overflow-hidden">
+                <img src="img/mhs_tipu.png" alt="" class="w-full h-full object-cover opacity-80">
+                <div class="absolute bottom-0 p-6 text-white bg-gradient-to-t from-black to-transparent">
+                    <h3 class="text-2xl font-bold">Penjual dan pembeli pasti mahasiswa</h3>
+                    <p class="text-sm mt-2">Fitur verifikasi mahasiswa yang membatasi pengguna hanya dari kalangan
+                        akademik.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="relative w-full h-96 bg-black rounded-lg overflow-hidden">
+                <img src="img/ewallet_2.png" alt="" class="w-full h-full object-cover opacity-80">
+                <div class="absolute bottom-0 p-6 text-white bg-gradient-to-t from-black to-transparent">
+                    <h3 class="text-2xl font-bold">pemBayar lewat e-wallet</h3>
+                    <p class="text-sm mt-4">Sistem pembayaran melalui e-wallet memberikan transparansi dan keamanan
+                        dalam
+                        transaksi.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="relative w-full h-96 bg-black rounded-lg overflow-hidden">
+                <img src="img/jualbeli.png" alt="" class="w-full h-full object-cover opacity-80">
+                <div class="absolute bottom-0 p-6 text-white bg-gradient-to-t from-black to-transparent">
+                    <h3 class="text-2xl font-bold">COD dipastikan aman</h3>
+                    <p class="text-sm mt-6">Memfasilitasi COD dengan sistem konfirmasi untuk menghindari penipuan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Section -->
+    <section id="review" class="bg-gray-100 py-10 ">
+        <div class="w-full relative">
+            <div id="carouselExample" class="relative" data-carousel="slide">
+                <div class="relative overflow-hidden rounded-2xl h-[30rem]">
+                    <!-- Slide 1 -->
+                    <div class="duration-700 ease-in-out relative" data-carousel-item>
+                        <img src="img/review_3.png" alt="Slide 1" class="w-full h-full object-cover rounded-2xl">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-white bg-opacity-80 p-6 rounded-lg max-w-md text-center shadow-lg">
+                                <p class="text-lg font-semibold text-gray-900">"Marketplace ini sangat membantu bisnis saya! Sangat mudah digunakan."</p>
+                                <span class="text-sm text-gray-600">- Budi, Penjual</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Slide 2 -->
+                    <div class="hidden duration-700 ease-in-out relative" data-carousel-item>
+                        <img src="img/bg-homepage.png" alt="Slide 2" class="w-full h-full object-cover rounded-2xl">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-white bg-opacity-80 p-6 rounded-lg max-w-md text-center shadow-lg">
+                                <p class="text-lg font-semibold text-gray-900">"Saya bisa menemukan produk yang saya butuhkan dengan cepat!"</p>
+                                <span class="text-sm text-gray-600">- Siti, Pembeli</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Slide 3 -->
+                    <div class="hidden duration-700 ease-in-out relative" data-carousel-item>
+                        <img src="img/review_2.png" alt="Slide 3" class="w-full h-full object-cover rounded-2xl">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-white bg-opacity-80 p-6 rounded-lg max-w-md text-center shadow-lg">
+                                <p class="text-lg font-semibold text-gray-900">"Sistemnya sangat aman dan nyaman, saya merasa puas!"</p>
+                                <span class="text-sm text-gray-600">- Rudi, Penjual</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Tombol Navigasi -->
+                <button type="button"
+                    class="absolute top-1/2 left-5 -translate-y-1/2 p-3 flex justify-center items-center border border-indigo-600 w-12 h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 z-10"
+                    data-carousel-prev>
+                    <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16" fill="none">
+                        <path d="M10.0002 11.9999L6 7.99971L10.0025 3.99719" stroke="currentColor" stroke-width="1.6"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button type="button"
+                    class="absolute top-1/2 right-5 -translate-y-1/2 p-3 flex justify-center items-center border border-indigo-600 w-12 h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 z-10"
+                    data-carousel-next>
+                    <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16" fill="none">
+                        <path d="M5.99984 4.00012L10 8.00029L5.99748 12.0028" stroke="currentColor" stroke-width="1.6"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+    
+                <!-- Indikator -->
+                <!-- <div class="absolute bottom left-1/2 -translate-x-1/2 center flex space-x-3" data-carousel-indicators>
+                    <button class="w-3 h-3 rounded-full bg-indigo-600 opacity-100 transition-all duration-300"
+                        aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button class="w-3 h-3 rounded-full bg-indigo-400 opacity-50 transition-all duration-300"
+                        aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <button class="w-3 h-3 rounded-full bg-indigo-400 opacity-50 transition-all duration-300"
+                        aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="team" class="bg-gray-100 py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Team developer LARIS AJA</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Anggota 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="img/bali.jpg" alt="John Doe" class="w-48 h-48 mx-auto rounded-full object-cover">
+                    <h3 class="text-xl font-semibold mt-4 text-gray-800">Thariq Kemal Choiruddin</h3>
+                    <p class="text-gray-600">Frontend Developer, UI/UX designer & Project Manager</p>
+                    <div class="flex justify-center mt-3 space-x-3">
+                        <a href="#" class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-700 hover:text-gray-900"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Anggota 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="img/razky.jpg" alt="Jane Smith" class="w-48 h-48 mx-auto rounded-full object-cover">
+                    <h3 class="text-xl font-semibold mt-4 text-gray-800">Ba'abdil Razky Ardinanta</h3>
+                    <p class="text-gray-600">Frontend Developer</p>
+                    <div class="flex justify-center mt-3 space-x-3">
+                        <a href="#" class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-700 hover:text-gray-900"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Anggota 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="img/zaky.jpg" alt="Michael Lee" class="w-48 h-48 mx-auto rounded-full object-cover">
+                    <h3 class="text-xl font-semibold mt-4 text-gray-800">Zaky Madilau Barus</h3>
+                    <p class="text-gray-600">Frontend Developer</p>
+                    <div class="flex justify-center mt-3 space-x-3">
+                        <a href="#" class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-700 hover:text-gray-900"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Foooter -->
+    <section id="footer">
+        <footer class="relative bg-blue-900 pt-8 pb-6 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap text-left lg:text-left">
+                    <div class="w-full lg:w-6/12 px-4">
+                        <h4 class="text-3xl fonat-semibold text-white">Let's keep in touch!</h4>
+                        <div class="mt-6 lg:mb-0 mb-6">
+                            <button
+                                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-twitter"></i></button><button
+                                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-facebook-square"></i></button><button
+                                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-instagram"></i></button><button
+                                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-linkedin"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="flex flex-wrap items-top mb-6">
+                            <div class="w-full lg:w-4/12 px-4 ml-auto">
+                                <span class="block uppercase text-white text-sm font-semibold mb-2">Useful
+                                    Links</span>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.creative-tim.com/presentation?ref=njs-profile">About
+                                            Us</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://blog.creative-tim.com?ref=njs-profile">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.github.com/creativetimofficial?ref=njs-profile">Github</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile">Free
+                                            Products</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <span class="block uppercase text-white text-sm font-semibold mb-2">Other
+                                    Resources</span>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/terms?ref=njs-profile">Terms &amp;
+                                            Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/privacy?ref=njs-profile">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/contact-us?ref=njs-profile">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-6 border-blueGray-300">
+                <div class="flex flex-wrap items-center md:justify-between justify-center">
+                    <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                        <div class="text-sm text-white font-semibold py-1">
+                            Copyright © <span id="get-current-year">2025</span><a
+                                href="https://www.creative-tim.com/product/notus-js"
+                                class="text-white hover:text-gray-800" target="_blank"> by
+                                <a href="https://www.creative-tim.com?ref=njs-profile"
+                                    class="text-white hover:text-blueGray-800">Kontrakan Pride</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+
+        // Navbar berubah warna saat di-scroll
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("bg-blue-900");
+            } else {
+                navbar.classList.remove("bg-blue-900");
+            }
+        });
+        // Initialize Swiper
+        var swiper = new Swiper(".default-carousel", {
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.querySelector('[data-carousel]');
+            let currentIndex = 0;
+            const items = carousel.querySelectorAll('[data-carousel-item]');
+            const totalItems = items.length;
+            const indicators = carousel.querySelectorAll('[data-carousel-indicators] button');
+
+            function updateCarousel(index) {
+                items.forEach((item, i) => {
+                    item.classList.toggle('hidden', i !== index);
+                });
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('opacity-100', i === index);
+                    indicator.classList.toggle('opacity-50', i !== index);
+                });
+            }
+
+            carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCarousel(currentIndex);
+            });
+
+            carousel.querySelector('[data-carousel-next]').addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel(currentIndex);
+            });
+
+            indicators.forEach((indicator, i) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel(currentIndex);
+                });
+            });
+
+            updateCarousel(currentIndex);
+        });
+    </script>
+
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>
