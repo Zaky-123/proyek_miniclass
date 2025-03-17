@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full flex justify-between items-center p-4 shadow-md bg-white backdrop-blur-md z-50">
+        <div class="flex items-center space-x-2">
+            <!-- Logo -->
+            <a href="index_2.html" class="flex items-center">
+                <img src="img/logo.png" class="h-14 w-auto rounded-lg" alt="Logo">
+            </a>
+        </div>
+
+        <!-- Tombol Kategori dan Search -->
+        <div class="flex items-center space-x-4">
+            <!-- Tombol Kategori (Hanya untuk Desktop) -->
+            <div class="relative hidden md:block">
+                <button id="categoryButton"
+                    class="bg-blue-900 text-white px-4 py-2 rounded-md flex items-center space-x-2">
+                    <span>Kategori</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300"
+                        id="categoryArrowIcon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="categoryDropdown" class="absolute hidden bg-white shadow-md rounded-md mt-2 w-48">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Elektronik</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Fashion</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Peralatan Rumah</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Olahraga</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Lainnya</a>
+                </div>
+            </div>
+
+            <!-- Input Pencarian -->
+            <div class="relative">
+                <input id="searchInput" type="text" placeholder="Search Product"
+                    class="border rounded px-3 py-1 w-full">
+            </div>
+        </div>
+
+        <!-- Tombol Menu Mobile -->
+        <button class="md:hidden text-secondary" id="menuToggle">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <!-- Menu Navigasi Desktop -->
+        <div class="hidden md:flex md:space-x-6 text-gray-700 items-center">
+            <a href="aplikasi.html" class="hover:text-blue-900">Home</a>
+            <a href="aplikasi.html#rekomendasi" class="hover:text-blue-900">Rekomendasi</a>
+            <button onclick="window.location.href='jual.html'" class="bg-blue-900 text-white px-3 py-1 rounded text-sm">Jual</button>
+        </div>
+        <!-- Ikon Aksi -->
+        <div class="hidden md:flex space-x-4 items-center">
+            <button onclick="window.location.href='chat.html';">
+                <i class="fas fa-envelope"></i>
+            </button>
+            <button onclick="window.location.href='Konfirmasi.html'">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden fixed top-16 left-0 w-full bg-white shadow-md py-4 px-6 z-50">
+        <nav class="flex flex-col space-y-4">
+            <a href="aplikasi.html" class="font-medium hover:text-blue-900 transition">Home</a>
+            <a href="aplikasi.html#rekomendasi" class="font-medium hover:text-blue-900 transition">Rekomendasi</a>
+            <button onclick="window.location.href='jual.html'" class="bg-blue-900 text-white px-4 py-2 rounded text-sm">Jual</button>
+
+            <!-- Ikon Aksi -->
+            <div class="flex space-x-4 pt-2">
+                <button onclick="window.location.href='chat.html'">
+                    <i class="fas fa-envelope"></i>
+                </button>
+                <button onclick="window.location.href='Konfirmasi.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- chat section -->
+    <section class="bg-gray-100 h-screen flex items-center justify-center mt-20">
+        <div class="w-full max-w-5xl h-[90vh] bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
+            <div class="flex items-center justify-between p-4 border-b">
+                <button onclick="window.location.href='aplikasi.html';"
+                    class="text-gray-600 hover:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <h1 class="text-lg font-semibold">Chat</h1>
+            </div>
+            <div class="flex flex-1 overflow-hidden">
+                <div class="w-1/3 border-r p-4 overflow-y-auto">
+                    <div class="bg-blue-100 p-3 rounded-lg mb-2 flex items-center">
+                        <img src="/proyek_miniclass/assets/images/mahasiswa.webp" alt="Avatar"
+                            class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">Thariq kemal <span class="text-sm text-blue-600">Penjual</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-2/3 p-4 flex flex-col h-full">
+                    <div id="chatBox" class="flex-1 overflow-y-auto p-2 border-b">
+                        <div class="mb-4">
+                            <p class="text-gray-700 bg-gray-200 p-3 rounded-lg max-w-xs break-words">yang membedakan
+                                buku ini sama yang versi hardcover, itu beda covernya doang kah?</p>
+                            <p class="text-sm text-gray-500">16:38</p>
+                        </div>
+                        <div class="mb-4 text-right">
+                            <p class="text-white bg-blue-500 p-3 rounded-lg max-w-xs break-words ml-auto">benar kak</p>
+                            <p class="text-sm text-gray-500">17:36</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center border rounded-lg p-2">
+                        <input type="text" id="messageInput" class="w-full outline-none p-2"
+                            placeholder="Tulis Pesan..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                        <button onclick="sendMessage()" class="text-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14.752 11.168l-8.486 3.536A1 1 0 015 13.763V6.237a1 1 0 011.266-.97l8.486 3.536a1 1 0 010 1.864z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foooter -->
+    <section id="footer">
+        <footer class="relative bg-blue-900 pt-8 pb-6 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap text-left lg:text-left">
+                    <div class="w-full lg:w-6/12 px-4">
+                        <h4 class="text-3xl fonat-semibold text-white">Let's keep in touch!</h4>
+                        <div class="mt-6 lg:mb-0 mb-6">
+                            <button
+                                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-twitter"></i></button><button
+                                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-facebook-square"></i></button><button
+                                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-instagram"></i></button><button
+                                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-linkedin"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="flex flex-wrap items-top mb-6">
+                            <div class="w-full lg:w-4/12 px-4 ml-auto">
+                                <span class="block uppercase text-white text-sm font-semibold mb-2">Useful
+                                    Links</span>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.creative-tim.com/presentation?ref=njs-profile">About
+                                            Us</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://blog.creative-tim.com?ref=njs-profile">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.github.com/creativetimofficial?ref=njs-profile">Github</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile">Free
+                                            Products</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <span class="block uppercase text-white text-sm font-semibold mb-2">Other
+                                    Resources</span>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/terms?ref=njs-profile">Terms &amp;
+                                            Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/privacy?ref=njs-profile">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="https://creative-tim.com/contact-us?ref=njs-profile">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-6 border-blueGray-300">
+                <div class="flex flex-wrap items-center md:justify-between justify-center">
+                    <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                        <div class="text-sm text-white font-semibold py-1">
+                            Copyright © <span id="get-current-year">2025</span><a
+                                href="https://www.creative-tim.com/product/notus-js"
+                                class="text-white hover:text-gray-800" target="_blank"> by
+                                <a href="https://www.creative-tim.com?ref=njs-profile"
+                                    class="text-white hover:text-blueGray-800">Kontrakan Pride</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Hamburger menu
+            document.addEventListener('DOMContentLoaded', function () {
+                const menuToggle = document.getElementById('menuToggle');
+                const mobileMenu = document.getElementById('mobileMenu');
+
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Menutup menu jika klik di luar menu
+                document.addEventListener('click', function (event) {
+                    if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            function sendMessage() {
+                const input = document.getElementById("messageInput");
+                const message = input.value.trim();
+                if (message === "") return;
+
+                const chatBox = document.getElementById("chatBox");
+                const messageElement = document.createElement("div");
+                messageElement.className = "mb-4 text-right";
+                messageElement.innerHTML = `
+                <p class="text-white bg-blue-500 p-3 rounded-lg max-w-xs break-words ml-auto">${message}</p>
+                <p class="text-sm text-gray-500">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+            `;
+                chatBox.appendChild(messageElement);
+
+                input.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+
+            // Dropdown kategori
+            const categoryButton = document.getElementById('categoryButton');
+            const categoryDropdown = document.getElementById('categoryDropdown');
+            const categoryArrowIcon = document.getElementById('categoryArrowIcon');
+
+            categoryButton.addEventListener('click', () => {
+                categoryDropdown.classList.toggle('hidden');
+                categoryArrowIcon.classList.toggle('rotate-180');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!categoryButton.contains(event.target) && !categoryDropdown.contains(event.target)) {
+                    categoryDropdown.classList.add('hidden');
+                    categoryArrowIcon.classList.remove('rotate-180');
+                }
+            });
+        </script>
+</body>
+
+</html>
