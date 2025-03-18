@@ -115,13 +115,13 @@
                             <span class="mt-3 text-blue-900 font-semibold text-lg">Pilih Foto</span>
                         </div>
                     </label>
-                    <p class="text-blue-700 mt-2 text-sm">atau pindahkan foto ke sini (Hingga 10 foto)</p>
+                    <p class="text-blue-700 mt-2 text-sm">atau pindahkan foto ke sini</p>
                 </div>
                 <!-- Preview Foto -->
                 <div id="previewContainer" class="mt-4 grid grid-cols-3 gap-2"></div>
 
                 <!-- Pilih Kategori -->
-                <div class="mt-6">
+                <div class="my-3">
                     <label class="block font-semibold mb-2 text-lg text-blue-900">Kategori</label>
                     <select class="w-full rounded-lg p-3 text-lg border-2 border-black">
                         <option>Pilih kategori</option>
@@ -132,7 +132,7 @@
                 </div>
 
                 <!-- Judul -->
-                <div class="mt-6">
+                <div class="my-3">
                     <label class="block font-semibold mb-2 text-lg text-blue-900">Judul</label>
                     <input type="text" class="w-full border-2 border-black rounded-lg p-3 text-lg" placeholder="Beri nama untuk barangmu">
                 </div>
@@ -151,13 +151,13 @@
                 </div>
 
                 <!-- Harga -->
-                <div class="mt-6">
+                <div class="my-3">
                     <label class="block font-semibold mb-2 text-lg text-blue-900">Harga</label>
-                    <input type="text" class="w-full border-2 border-black rounded-lg p-3 text-lg" placeholder="Rp Harga barangmu">
+                    <input type="number" class="w-full border-2 border-black rounded-lg p-3 text-lg" placeholder="Rp Harga barangmu">
                 </div>
 
                 <!-- Deskripsi -->
-                <div class="mt-6">
+                <div class="my-3">
                     <label class="block font-semibold mb-2 text-lg text-blue-900">Deskripsi (Opsional)</label>
                     <textarea class="w-full border-2 border-black rounded-lg p-3 text-lg" rows="4" placeholder="Tambahkan deskripsi..."></textarea>
                 </div>
@@ -165,6 +165,8 @@
                 <!-- Pilih Merek -->
                 <div id="dropdownContainer" class="relative transition-all duration-300">
                     <label class="block font-semibold mb-2 text-lg text-blue-900">Pilih Merek</label>
+                    <input type="text" class="w-full border-2 border-black rounded-lg p-3 text-lg" placeholder="Masukkan merk barang">
+                    <!-- <label class="block font-semibold mb-2 text-lg text-blue-900">Pilih Merek</label>
                     <button id="dropdownButton" class="w-full border-2 border-black rounded-lg p-3 text-lg bg-white flex justify-between">
                         Pilih Merek
                         <span>^</span>
@@ -175,27 +177,13 @@
                         <li class="p-2 hover:bg-gray-200 cursor-pointer">Lenovo</li>
                         <li class="p-2 hover:bg-gray-200 cursor-pointer">Asus</li>
                         <li class="p-2 hover:bg-gray-200 cursor-pointer">DLL</li>
-                    </ul>
+                    </ul> -->
                 </div>
 
-                <!-- Metode Pembayaran -->
-                <div id="dropdownContainer2" class="relative transition-all duration-300">
-                    <label class="block font-semibold mb-2 text-lg text-blue-900">Metode Pembayaran</label>
-                    <button id="dropdownButton2" class="w-full border-2 border-black rounded-lg p-3 text-lg bg-white flex justify-between">
-                        Metode Pembayaran
-                        <span>^</span>
-                    </button>
-                    <ul id="dropdownList2" class="hidden w-full bg-white border border-black mt-1 rounded-lg shadow-lg relative">
-                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Pilih Metode</li>
-                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Transfer Bank</li>
-                        <li class="p-2 hover:bg-gray-200 cursor-pointer">e-Wallet (GoPay, OVO, Dana)</li>
-                        <li class="p-2 hover:bg-gray-200 cursor-pointer">Kartu Kredit/Debit</li>
-                        <li class="p-2 hover:bg-gray-200 cursor-pointer">DLL</li>
-                    </ul>
-                </div>
+                
                 
                 <!-- Tombol Pasang -->
-                <div class="mt-6 text-right">
+                <div class="my-3 text-right">
                     <button class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-blue-800 transition">
                         Pasang Sekarang
                     </button>

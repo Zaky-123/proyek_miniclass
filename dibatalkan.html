@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesanan Dibatalkan</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body background="img/mahasiswa.jpeg.jpg">
+
+<style>
+    body {
+        background-image: url('./img/mahasiswa.jpeg.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+<body>
 
     <!-- Navbar -->
     <nav class="bg-blue-600 shadow-md p-1 border-b-4 border-blue-800">
         <div class="max-w-screen-xl mx-auto flex items-center justify-between h-14">
-            <a href="#" class="flex items-center">
+            <!-- Logo di kiri -->
+            <a href="index_2.html" class="flex items-center">
                 <img src="img/logo.png" class="h-16 w-auto rounded-lg" alt="Logo">
             </a>
-            <div class="flex-1 flex justify-center space-x-20">
-                <a href="konfirmasi.html" class="text-white font-semibold hover:text-blue-300 transition duration-300">Konfirmasi</a>
-                <a href="status.html" class="text-white font-semibold hover:text-blue-300 transition duration-300">Status</a>
-                <a href="dibatalkan.html" class="text-white font-semibold hover:text-blue-300 transition duration-300">Dibatalkan</a>
+
+            <!-- Menu di tengah (desktop) -->
+            <div class="flex-1 hidden md:flex justify-end gap-10">
+                <a href="konfirmasi.html"
+                    class="text-white font-semibold hover:text-blue-300 transition duration-300">Konfirmasi</a>
+                <a href="status.html"
+                    class="text-white font-semibold hover:text-blue-300 transition duration-300">Status</a>
+                <a href="dibatalkan.html"
+                    class="text-white font-semibold hover:text-blue-300 transition duration-300">Dibatalkan</a>
             </div>
+
+            <!-- Button hamburger (di pojok kanan) -->
+            <button id="menu-toggle" class="md:hidden p-2 rounded-md focus:outline-none ml-auto">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-600 p-4">
+        <a href="konfirmasi.html" class="block text-white font-semibold py-2">Konfirmasi</a>
+        <a href="status.html" class="block text-white font-semibold py-2">Status</a>
+        <a href="dibatalkan.html" class="block text-white font-semibold py-2">Dibatalkan</a>
+    </div>
+
+
 
     <!-- Kontainer Pesanan Dibatalkan -->
     <div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
@@ -43,5 +75,17 @@
         </div>
     </div>
 
+    <script>
+        // Mendapatkan elemen menu dan tombol hamburger
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Menambahkan event listener untuk toggle menu
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); // Menampilkan atau menyembunyikan menu mobile
+        });
+
+    </script>
 </body>
+
 </html>

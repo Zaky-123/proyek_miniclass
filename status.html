@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 
-<body background="img/mahasiswa.jpeg.jpg">
+<style>
+    body {
+        background-image: url('./img/mahasiswa.jpeg.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+
+<body>
     <!-- <nav class="bg-blue-600 shadow-md p-2">
         <div class="max-w-screen-xl mx-auto flex items-center justify-between h-14">
             <a href="#" class="flex items-center">
@@ -24,18 +32,32 @@
     <nav class="bg-blue-600 shadow-md p-1 border-b-4 border-blue-800">
         <div class="max-w-screen-xl mx-auto flex items-center justify-between h-14">
             <!-- Logo di kiri -->
-            <a href="#" class="flex items-center">
-                <img src="img/logo.png" class="h-14 w-auto rounded-lg" alt="Logo">
+            <a href="index_2.html" class="flex items-center">
+                <img src="img/logo.png" class="h-16 w-auto rounded-lg" alt="Logo">
             </a>
-            
-            <!-- Menu di tengah -->
-            <div class="flex-1 flex justify-center space-x-20">
-                <a href="konfirmasi.html" class="text-white font-semibold hover:text-gray-300 transition duration-300">Konfirmasi</a>
-                <a href="status.html" class="text-white font-semibold hover:text-gray-300 transition duration-300">Status</a>
-                <a href="dibatalkan.html" class="text-white font-semibold hover:text-gray-300 transition duration-300">Dibatalkan</a>
+    
+            <!-- Menu di tengah (desktop) -->
+            <div class="flex-1 hidden md:flex justify-end gap-10">
+                <a href="konfirmasi.html" class="text-white font-semibold hover:text-blue-300 transition duration-300">Konfirmasi</a>
+                <a href="status.html" class="text-white font-semibold hover:text-blue-300 transition duration-300">Status</a>
+                <a href="dibatalkan.html" class="text-white font-semibold hover:text-blue-300 transition duration-300">Dibatalkan</a>
             </div>
+    
+            <!-- Button hamburger (di pojok kanan) -->
+            <button id="menu-toggle" class="md:hidden p-2 rounded-md focus:outline-none ml-auto">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </div>
     </nav>
+    
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="md:hidden bg-blue-600 text-white p-4 hidden">
+        <a href="konfirmasi.html" class="block py-2">Konfirmasi</a>
+        <a href="status.html" class="block py-2">Status</a>
+        <a href="dibatalkan.html" class="block py-2">Dibatalkan</a>
+    </div>
 
     <section id="riwayat" class="max-w-3xl mx-auto mt-6">
     <div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
@@ -47,26 +69,26 @@
 
             <div class="border-b pb-4 mb-4">
                 <div class="flex items-center">
-                    <img src="img/taswanita.png" alt="Tas" class="w-20 h-20 rounded-md">
+                    <img src="img/laptop-1.jpg" alt="laptop" class="w-20 h-20 rounded-md">
                     <div class="ml-4 flex-1">
-                        <h3 class="text-md font-semibold">Tas Wanita Selempang Claire Square Tan Merche</h3>
+                        <h3 class="text-md font-semibold">Laptop lenovo thinkpad X470s</h3>
                         <p class="text-gray-500">x1</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-red-600 font-bold">Rp195.200</span>
+                        <span class="text-red-600 font-bold">Rp8.500.000</span>
                     </div>
                 </div>
             </div>
 
             <div class="border-b pb-4 mb-4">
                 <div class="flex items-center">
-                    <img src="img/dompetwanita.png" alt="Dompet" class="w-20 h-20 rounded-md">
+                    <img src="img/ssd.jpg" alt="Dompet" class="w-20 h-20 rounded-md">
                     <div class="ml-4 flex-1">
-                        <h3 class="text-md font-semibold">Dompet Wanita Sally Taupe Merche</h3>
+                        <h3 class="text-md font-semibold">SSD M.2 256 GB Merk AOSNKE</h3>
                         <p class="text-gray-500">x1</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-red-600 font-bold">Rp195.200</span>
+                        <span class="text-red-600 font-bold">Rp155.000</span>
                     </div>
                 </div>
             </div>
@@ -78,7 +100,7 @@
                 </div>
                 <div>
                     <span class="text-gray-500">Total:</span>
-                    <span class="text-red-600 font-bold">Rp390.400</span>
+                    <span class="text-red-600 font-bold">Rp8.655.000</span>
                 </div>
             </div>
         </div>
@@ -89,13 +111,13 @@
 
             <div class="border-b pb-4 mb-4">
                 <div class="flex items-center">
-                    <img src="img/sepatupria.png" alt="Produk" class="w-20 h-20 rounded-md">
+                    <img src="img/sepatu.jpg" alt="Produk" class="w-20 h-20 rounded-md">
                     <div class="ml-4 flex-1">
-                        <h3 class="text-md font-semibold">Sepatu Sneaker Pria</h3>
+                        <h3 class="text-md font-semibold">Reebok Basketball Shoes Original</h3>
                         <p class="text-gray-500">x1</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-gray-700 font-bold">Rp250.000</span>
+                        <span class="text-gray-700 font-bold">Rp255.000</span>
                     </div>
                 </div>
             </div>
@@ -107,7 +129,7 @@
                 </div>
                 <div>
                     <span class="text-gray-500">Total:</span>
-                    <span class="text-gray-700 font-bold">Rp250.000</span>
+                    <span class="text-gray-700 font-bold">Rp255.000</span>
                 </div>
             </div>
         </div>
@@ -115,7 +137,16 @@
         
    
     </section>
-
+    <script>
+        // Mendapatkan elemen menu dan tombol hamburger
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        // Menambahkan event listener untuk toggle menu
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); // Menampilkan atau menyembunyikan menu mobile
+        });
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
 
