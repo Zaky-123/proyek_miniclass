@@ -7,64 +7,59 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { 
-            background-image: url('images/9c59b890e105d874f751e81d8265ffbb.jpg');
+            background-image: url('img/bg-bekas2.png');
             background-size: cover;
             background-position: center;
         }
-        .bg-image-step1{
-            background-image: url('images/f236b35d87c6245e6c5853927aaf1622.jpg');
-            background-size: cover;
-            background-position: center;
-        } 
-
     </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-white">
-    <div class="w-full max-w-2xl p-6 bg-white rounded-xl shadow-lg border-2 border-blue-500 flex gap-4">
-        <div class="w-5/6 bg-image-step1 rounded-xl "></div>
-        <div class="w-1/6 flex items-center justify-center"></div>
-            <div id="step1" class="rounded-xl bg-white  w-full">
-                <h2 class="text-xl font-bold text-center mb-4">Daftar Akun</h2>
-                <div class="space-y-4">
+<body class="flex items-center justify-center h-screen">
+    <div class="w-full max-w-lg p-8 bg-white rounded-xl shadow-xl border border-blue-200 flex flex-col items-center">
+        <img src="img/logo.png" alt="Logo" class="h-14 items-center">
+        <h2 class="text-2xl font-bold text-center mb-6 mt-5 text-black">Daftar</h2>
+        
+        <div id="step1" class="w-full">
+            <div class="space-y-4">
                 <div>
-                    <label class="block font-medium">Email </label>
-                    <input type="text" class="w-full px-3 py-2 border rounded" placeholder="Masukkan Email Anda">
+                    <label class="block font-medium text-gray-700">Email</label>
+                    <input type="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Masukkan Email Anda">
                 </div>
                 <div>
-                    <label class="block font-medium">Password</label>
-                    <input type="text" class="w-full px-3 py-2 border rounded" placeholder="Masukkan password Anda">
+                    <label class="block font-medium text-gray-700">Password</label>
+                    <input type="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Masukkan Password Anda">
                 </div>
                 <div>
-                    <label class="block font-medium">Nama Kampus</label>
-                    <input type="text" class="w-full px-3 py-2 border rounded" placeholder="Masukkan nama kampus">
+                    <label class="block font-medium text-gray-700">Nama Kampus</label>
+                    <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Masukkan Nama Kampus">
                 </div>
                 <div>
-                    <label class="block font-medium">NRP</label>
-                    <input type="text" class="w-full px-3 py-2 border rounded" placeholder="Masukkan NRP Anda">
+                    <label class="block font-medium text-gray-700">NRP</label>
+                    <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Masukkan NRP Anda">
                 </div>
-                <button class="w-full mt-4 bg-blue-500 text-white py-2 rounded" onclick="nextStep()">Lanjut</button>
-                <p class="mt-6 text-gray-600">Sudah punya akun? <a href="masuk.html" class="text-blue-600 hover:underline">Masuk di sini</a></p>
+                <button class="w-full mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300" onclick="nextStep()">Lanjut</button>
+                <p class="mt-4 text-gray-600 text-center">Sudah punya akun? <a href="masuk.html" class="text-blue-600 hover:underline">Masuk di sini</a></p>
             </div>
         </div>
 
-        <div id="step2" class="rounded-xl bg-white  w-full hidden">
-            <h2 class="text-xl font-bold text-center mb-4">Unggah Dokumen</h2>
+        <div id="step2" class="w-full hidden">
+            <h2 class="text-xl font-bold text-center mb-4 text-blue-600">Unggah Dokumen</h2>
             <div class="space-y-4">
                 <div>
-                    <label class="block font-medium">Foto KTM</label>
-                    <input type="file" class="w-full px-3 py-2 border rounded" accept="image/*">
+                    <label class="block font-medium text-gray-700">Foto KTM</label>
+                    <input type="file" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
                 </div>
                 <div>
-                    <label class="block font-medium">Foto Diri</label>
-                    <input type="file" class="w-full px-3 py-2 border rounded" accept="image/*">
+                    <label class="block font-medium text-gray-700">Foto Diri</label>
+                    <input type="file" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
                 </div>
                 <div class="flex justify-between mt-4">
-                    <button class="bg-gray-500 text-white py-2 px-4 rounded" onclick="prevStep()">Kembali</button>
-                    <button class="bg-blue-500 text-white py-2 px-4 rounded" onclick="window.location.href='masuk.html'">Daftar</button>
+                    <button class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition duration-300" onclick="prevStep()">Kembali</button>
+                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300" onclick="window.location.href='masuk.html'">Daftar</button>
                 </div>
             </div>
         </div>
     </div>
+    
     <script>
         function nextStep() {
             document.getElementById('step1').classList.add('hidden');

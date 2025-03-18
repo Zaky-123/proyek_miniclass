@@ -7,15 +7,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-image: url('images/431b1c3d397c04127ae03224916edddb.jpg'); 
+            background-image: url('img/bg-bekas2.png'); 
             background-size: cover;
             background-position: center;
         }
     </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-cover bg-center">
-    <div class="bg-white p-8 rounded-xl shadow-lg w-96 text-center border-2 border-blue-500">
-        <h2 class="text-3xl font-semibold mb-6 text-blue-600">Login Akun</h2>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-cover bg-center" style="background-image: url('img/bg-bekas2.png');">
+    <div class="bg-gray-200 p-8 rounded-xl shadow-lg w-96 text-center border-2 border-blue-500 relative">
+        <img src="img/logo.png" alt="Logo" class="mx-auto h-14 ">
+        <h2 class="text-2xl font-semibold mb-6 mt-5 text-black">Login</h2>
         <form onsubmit="event.preventDefault(); window.location.href='aplikasi.html';">
             <div class="mb-6 text-left">
                 <label for="email" class="block font-medium text-gray-700">Email</label>
@@ -27,7 +36,9 @@
             </div>
             <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300">Masuk</button>
         </form>
-        <p class="mt-6 text-gray-600">Belum punya akun? <a href="daftar.html " class="text-blue-600 hover:underline">Daftar di sini</a></p>
+        <p class="mt-6 text-gray-600">Belum punya akun? <a href="daftar.html" class="text-blue-600 hover:underline">Daftar di sini</a></p>
     </div>
 </body>
+</html>
+
 </html>
